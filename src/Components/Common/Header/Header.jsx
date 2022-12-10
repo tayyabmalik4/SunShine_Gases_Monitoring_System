@@ -12,7 +12,7 @@ export default function Header(props) {
             <div className="machineHeader">
                 <img className='machineimagelogo' src={sunshine} alt="Uploading" />
                 {/* <div className="roomName">{roomName}</div> */}
-                <div className="machineheading">MRS9000 WASTE MANAGEMENT MONITORING WITH REPORTING</div>
+                <div className="machineheading">MRS9000 EMITION MONITORING OF INCINERATOR WITH REPORTING</div>
                 <div className="datetimeupdated">{props.timedate}</div>
                 {/* <div className="machineheading">TEMPERATURE AND HUMIDITY MONITORING WITH REPORTING</div> */}
             </div>

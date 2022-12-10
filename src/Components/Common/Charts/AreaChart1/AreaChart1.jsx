@@ -36,7 +36,7 @@ export default function AreaChart1(props) {
         scales: {
             y: {
                 beginAtZero: true,
-                max: props.maxValueArea
+                max: props.maxValueArea,
             }
         }
 

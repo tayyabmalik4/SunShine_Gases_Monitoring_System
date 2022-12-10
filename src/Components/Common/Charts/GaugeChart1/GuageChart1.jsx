@@ -77,7 +77,7 @@ export default function GuageChart1(props) {
               show: true,
               // formatter: function (val) {
                 formatter: function (val) {
-                return (Math.round(val)) + props.valpercent ;
+                return (val.toFixed(props.valfix)) + props.valpercent ;
               },
             }
           }

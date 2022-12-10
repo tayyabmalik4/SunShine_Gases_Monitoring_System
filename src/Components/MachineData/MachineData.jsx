@@ -109,20 +109,20 @@ const MachineData = () => {
                         <div className="gaugechartpowerfuel">
 
                             <div className="gaugechartarea">
-                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co / 100) * 100} name={'CO: ' + meterDashData[meterDashData.length - 1]?.value?.co + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' />
+                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co / 100) * 100} name={'CO: ' + meterDashData[meterDashData.length - 1]?.value?.co + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' valfix = {0}/>
                             </div>
                             {/* <div className="gaugechartarea ">
                                 <GuageChart1 val={(33 / 100) * 100} name={"SOX: " + 33 + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
                             </div> */}
                             <div className="gaugechartarea ">
-                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.sox / 100) * 100} name={"SOX: " + meterDashData[meterDashData.length - 1]?.value?.sox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
+                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.sox / 100) * 100} name={"SOX: " + meterDashData[meterDashData.length - 1]?.value?.sox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' valfix = {0}/>
                             </div>
                         </div>
                         <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.nox / 1) * 100} name={'NOX: ' + meterDashData[meterDashData.length - 1]?.value?.nox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.nox / 100) * 100} name={'NOX: ' + meterDashData[meterDashData.length - 1]?.value?.nox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='14px' valfix = {2}/>
                         </div>
                         <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co2 / 100) * 100} name={'CO2: ' + meterDashData[meterDashData.length - 1]?.value?.co2 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={' %'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co2 / 100) * 100} name={'CO2: ' + meterDashData[meterDashData.length - 1]?.value?.co2 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={' %'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' valfix = {0}/>
                         </div>
                         <div className="gaugechartarea hourschart">
                             <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.pm / 100) * 100} name={'PM: ' + meterDashData[meterDashData.length - 1]?.value?.pm + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
@@ -132,14 +132,14 @@ const MachineData = () => {
                 <div className="temppowergraph">
                     <div className="linechartcontainer">
                     <div className="linechart2">
-                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Temperature)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.Oil_Pressure)} labelname1='SOX' labelname2='CO' maxValueArea={60}/>
+                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.co)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.sox)} labelname1='SOX' labelname2='CO' maxValueArea={60}/>
                         </div>
                         <div className="linechart1">
-                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Power)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.Fuel_Level)} labelname1='CO2' labelname2='NOX' maxValueArea = {10}/>
+                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.co2)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.nox)} labelname1='CO2' labelname2='NOX' maxValueArea = {10}/>
                         </div>
                         
                         <div className="linechart3">
-                        <AreaChart2 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Available_Fuel)} labelname1='Particular Matter' maxValueArea={10}/>
+                        <AreaChart2 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.pm)} labelname1='Particular Matter' maxValueArea={10}/>
                         </div>
                     </div>
                 </div>
