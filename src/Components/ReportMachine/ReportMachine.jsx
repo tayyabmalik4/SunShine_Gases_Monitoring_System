@@ -43,27 +43,17 @@ const ReportMachine = () => {
       <div className="reportmain">
         <div className="report" id='reportid'>
           {/* <div className="reportmaintable"> */}
-          <Header head={"MRS9000 GENERATOR SET HEALTH MONITORING WITH REPORTING"}/>
+          <Header/>
           <div className="date">{date.startDate} ~ {date.endDate}</div>
           <table className='tablemain' id='tablee'>
             <thead className='tablehead'>
               <tr className='tablerow'>
                 <th className='tableh'>Time | Date</th>
-                {/* <th className='tableh'>Time</th> */}
-                <th className='tableh'>Power</th>
-                <th className='tableh'>Total_Power</th>
-                <th className='tableh'>Temperature</th>
-                <th className='tableh'>Pressure</th>
-                <th className='tableh'>Fuel_Level</th>
-                <th className='tableh'>Total_Fuel</th>
-                <th className='tableh'>Available_Fuel</th>
-                <th className='tableh'>Water_Level</th>
-                <th className='tableh'>Led_Status</th>
-                <th className='tableh'>Sensor_Status</th>
-                <th className='tableh'>Total_Hourse</th>
-                
-
-                {/* <th className='tableh'>{dataa[dataa.length-1]?.value?.meter_id}</th> */}
+                <th className='tableh'>Particular Matter</th>
+                <th className='tableh'>CO2</th>
+                <th className='tableh'>CO</th>
+                <th className='tableh'>NOX</th>
+                <th className='tableh'>SOX</th>
               </tr>
             </thead>
             <tbody className='tablebody'>
@@ -72,19 +62,11 @@ const ReportMachine = () => {
                   return (
                     <tr className='tablerow' key={i}>
                       <td className='tabled'>{ddd?.time} | {ddd?.date}</td>
-                      {/* <td className='tabled'></td> */}
-                      <td className='tabled'>{ddd?.value?.Power} Kw </td>
-                      <td className='tabled'>{ddd?.value?.Total_Power} Kw </td>
-                      <td className='tabled'>{ddd?.value?.Temperature}°C </td>
-                      <td className='tabled'>{ddd?.value?.Oil_Pressure} Psi </td>
-                      <td className='tabled'>{ddd?.value?.Fuel_Level} Ltr </td>
-                      <td className='tabled'>{ddd?.value?.Total_Fuel} Ltr </td>
-                      <td className='tabled'>{ddd?.value?.Available_Fuel} Ltr </td>
-                      <td className='tabled'>{ddd?.value?.Water_Level} </td>
-                      <td className='tabled'>{ddd?.value?.Led_Status} </td>
-                      <td className='tabled'>{ddd?.value?.Sensor_Status} </td>
-                      <td className='tabled'>{ddd?.value?.Total_Hourse} </td>
-                      {/* <td className='tabled'> </td> */}
+                      <td className='tabled'>{ddd?.value?.pm} </td>
+                      <td className='tabled'>{ddd?.value?.co2} </td>
+                      <td className='tabled'>{ddd?.value?.co} </td>
+                      <td className='tabled'>{ddd?.value?.nox} </td>
+                      <td className='tabled'>{ddd?.value?.sox} </td>
                     </tr>
                   )
                 })

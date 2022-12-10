@@ -82,20 +82,11 @@ const MachineData = () => {
         navigate('/dashboard/report', { state: {date: sendDate } })
     }
 
-
-    // value define of temperature 
-    let valuetemp = meterDashData[meterDashData.length - 1]?.value?.temp
-    // console.log("-----", valuetemp);
-
-    var totalPower = parseInt(meterDashData[meterDashData.length - 1]?.value?.Total_Power);
-    var totalFuel = parseInt(meterDashData[meterDashData.length - 1]?.value?.Total_Fuel);
-    var totalHourse = parseInt(meterDashData[meterDashData.length - 1]?.value?.Total_Hourse);
-
     return (
         <>
             <div className="meterdatamain">
 
-                <Header head={"MRS9000 GENERATOR SET HEALTH MONITORING WITH REPORTING"} timedate={<Clock format={'HH:mm:ss| DD-MM-YYYY'} ticking={true} timezone={'asia/Karachi'} />} />
+                <Header timedate={<Clock format={'HH:mm:ss| DD-MM-YYYY'} ticking={true} timezone={'asia/Karachi'} />} />
                 <Header2 Device_ID={meterDashData[meterDashData.length - 1]?.value?.Device_ID} updatetime={meterDashData[meterDashData.length - 1]?.time + '\t | \t' + meterDashData[meterDashData.length - 1]?.date} />
                 <div className="machinedatamain">
                     <div className="machinetabledata">
@@ -110,9 +101,6 @@ const MachineData = () => {
                                 return moment(value[0])?.format("DD-MM-YYYY") + ' ~ ' + moment(value[1])?.format("DD-MM-YYYY");
                             }} />
                         <button className='btnreport' onClick={findByDate}> Report</button>
-                        <div className="fuelchart">
-                            <LiquaidChart1 valuech={meterDashData[meterDashData.length - 1]?.value?.Available_Fuel} />
-                        </div>
                     </div>
                 </div>
                 <div className="getherCharts">
@@ -121,44 +109,40 @@ const MachineData = () => {
                         <div className="gaugechartpowerfuel">
 
                             <div className="gaugechartarea">
-                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.Power / 630) * 100} name={'Power: ' + meterDashData[meterDashData.length - 1]?.value?.Power + " Kw"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' />
-                                <div className="totalgaugepowerarea">
-                                    <div className="totalgaugepara">Total Kw</div>
-                                    <div className="totalgaugep">{totalPower.toLocaleString()}</div>
-                                </div>
+                                <GuageChart1 val={(34 / 100) * 100} name={'CO: ' + 34 + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' />
                             </div>
+                            {/* <div className="gaugechartarea">
+                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co / 100) * 100} name={'CO: ' + meterDashData[meterDashData.length - 1]?.value?.co + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' />
+                            </div> */}
                             <div className="gaugechartarea ">
-                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.Fuel_Level / 157) * 100} name={"Fuel: " + meterDashData[meterDashData.length - 1]?.value?.Fuel_Level + " Ltr"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
-                                <div className="totalgaugepowerarea">
-                                    <div className="totalgaugepara">Total Ltr</div>
-                                    <div className="totalgaugep">{totalFuel.toLocaleString()}</div>
-                                </div>
+                                <GuageChart1 val={(54 / 100) * 100} name={"CO2: " + 54 + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
                             </div>
+                            {/* <div className="gaugechartarea ">
+                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co2 / 100) * 100} name={"CO2: " + meterDashData[meterDashData.length - 1]?.value?.co2 + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
+                            </div> */}
                         </div>
                         <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(190 / 720) * 100} name={'Run Hour: ' + 190} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
-                            <div className="totalgaugepowerarea">
-                                <div className="totalgaugepara">Total Hours</div>
-                                <div className="totalgaugep">{totalHourse.toLocaleString()}</div>
-                            </div>
+                            <GuageChart1 val={(40 / 100) * 100} name={'NOX: ' + 40} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                        </div>
+                        <div className="gaugechartarea hourschart">
+                            <GuageChart1 val={(67 / 100) * 100} name={'SOC: ' + 67} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                        </div>
+                        <div className="gaugechartarea hourschart">
+                            <GuageChart1 val={(60 / 100) * 100} name={'PM: ' + 60} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
                         </div>
                     </div>
                 </div>
                 <div className="temppowergraph">
                     <div className="linechartcontainer">
                         <div className="linechart1">
-                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Power)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.Fuel_Level)} labelname1='Kw' labelname2='Fuel' maxValueArea = {600}/>
+                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Power)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.Fuel_Level)} labelname1='CO2' labelname2='CO' maxValueArea = {100}/>
                         </div>
                         <div className="linechart2">
-                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Temperature)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.Oil_Pressure)} labelname1='Temperature' labelname2='Pressure' maxValueArea={120}/>
+                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Temperature)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.Oil_Pressure)} labelname1='SOX' labelname2='NOX' maxValueArea={100}/>
                         </div>
                         <div className="linechart3">
-                        <AreaChart2 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Available_Fuel)} labelname1='Fuel Tank' maxValueArea={540}/>
+                        <AreaChart2 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.Available_Fuel)} labelname1='Particular Matter' maxValueArea={100}/>
                         </div>
-                    </div>
-                    <div className="temppower">
-                        <GuageChart1 val={meterDashData[meterDashData.length - 1]?.value?.Temperature} valgraph={valuetemp} name='Temperature' numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'°C'} gradientColor={'rgb(211, 84, 0 )'} textFontSize='11px' valueFontSize='14px' />
-                        <GuageChart1 val={meterDashData[meterDashData.length - 1]?.value?.Oil_Pressure} valgraph={meterDashData[meterDashData.length - 1]?.value?.humidity} name='Pressure' numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'Psi'} gradientColor={'rgba(2, 1, 255, 1)'} textFontSize='11px' valueFontSize='14px' />
                     </div>
                 </div>
             </div>

@@ -61,7 +61,7 @@ export default function AreaChart2(props) {
     };
   return (
     <>
-    <Line options={options} data={data} height={285} width={300}/>
+    <Line options={options} data={data} height={285} width={350}/>
     </>
   )
 }

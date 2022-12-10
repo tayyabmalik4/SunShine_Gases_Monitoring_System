@@ -71,7 +71,7 @@ export default function Login() {
     <>
       <div className="loginmainContainer">
         {/* <img className="loginuserimage" src={luckyimg} alt="Uploading" /> */}
-        <Header head = {"MRS9000 GENERATOR SET HEALTH MONITORING WITH REPORTING"}/>
+        <Header />
         <div className="logincontainer">
           <div className="loginform">
             <div className="headinglogin">Login</div>
