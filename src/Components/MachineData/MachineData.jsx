@@ -109,26 +109,23 @@ const MachineData = () => {
                         <div className="gaugechartpowerfuel">
 
                             <div className="gaugechartarea">
-                                <GuageChart1 val={(40 / 100) * 100} name={'CO: ' + 40 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' />
-                            </div>
-                            {/* <div className="gaugechartarea">
                                 <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co / 100) * 100} name={'CO: ' + meterDashData[meterDashData.length - 1]?.value?.co + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' />
-                            </div> */}
-                            <div className="gaugechartarea ">
-                                <GuageChart1 val={(33 / 100) * 100} name={"SOX: " + 33 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
                             </div>
                             {/* <div className="gaugechartarea ">
-                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.sox / 100) * 100} name={"SOX: " + meterDashData[meterDashData.length - 1]?.value?.sox + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
+                                <GuageChart1 val={(33 / 100) * 100} name={"SOX: " + 33 + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
                             </div> */}
+                            <div className="gaugechartarea ">
+                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.sox / 100) * 100} name={"SOX: " + meterDashData[meterDashData.length - 1]?.value?.sox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
+                            </div>
                         </div>
                         <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(0.12 / 1) * 100} name={'NOX: ' + 0.12 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.nox / 1) * 100} name={'NOX: ' + meterDashData[meterDashData.length - 1]?.value?.nox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
                         </div>
                         <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(4 / 100) * 100} name={'CO2: ' + 4 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co2 / 100) * 100} name={'CO2: ' + meterDashData[meterDashData.length - 1]?.value?.co2 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={' %'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
                         </div>
                         <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(6 / 100) * 100} name={'PM: ' + 6 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.pm / 100) * 100} name={'PM: ' + meterDashData[meterDashData.length - 1]?.value?.pm + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
                         </div>
                     </div>
                 </div>
