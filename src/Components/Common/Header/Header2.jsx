@@ -8,9 +8,9 @@ export default function Header2(props) {
     return (
         <>
             <div className="header2main">
-                <div className="gencalculatiom">
+                {/* <div className="gencalculatiom">
                     <div className="gentotal"><img className='sunshine2' src={sunshine2} alt="" /></div>
-                </div>
+                </div> */}
                 <div className="header2DeviceId">{props.Device_ID}</div> 
                 <div className="header2updatetime"><span className='updateat'>Update :</span>  {props.updatetime}</div>
                     <img className="genimg" src={gen} alt="Uploaded" />
