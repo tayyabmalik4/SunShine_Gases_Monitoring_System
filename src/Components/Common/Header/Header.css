@@ -1,0 +1,28 @@
+.machineHeader{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-left: 10px;
+    /* margin-top: -0.8rem; */
+}
+.machineimagelogo{
+    height: 4rem;
+    width: 7rem;
+}
+.roomName{
+    font-size: 1rem;
+}
+
+.machineheading{
+    font-size: 0.8rem;
+    color: gray;
+    /* width: 65%; */
+}
+.datetimeupdated{
+    margin-right: 2rem;
+}
+@media screen and (max-width:750px) {
+    .machineHeader{
+        flex-wrap: wrap;
+    }
+}

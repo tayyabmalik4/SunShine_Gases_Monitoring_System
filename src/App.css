@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+
+.App {
+  /* padding: 20px; */
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  min-height: calc(100vh - 40px);
+}
+
+:root{
+  --headingSize : 1.1rem;
+  --headingWight : 600;
+}

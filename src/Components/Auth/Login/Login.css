@@ -1,0 +1,60 @@
+.loginuserimage{
+    height: 5rem;
+    width: 5rem;
+}
+
+.logincontainer{
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+.logincontainer .loginform{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    background-color: rgb(184, 218, 215);
+    height: 15rem;
+    width: 20rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+.logincontainer .headinglogin{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.logincontainer .logininput{
+    padding: 0.4rem;
+    /* border-radius: 5px; */
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    /* color: white; */
+    cursor: text;
+    margin-bottom: 1rem;
+    width: 15rem;
+}
+
+.logincontainer .btnlogin{
+    margin-top: 5px;
+    align-self: flex-end;
+    background-color: transparent;
+    border: 1px solid #3e4492;
+    padding: 2px 7px;
+    width: 4rem;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    margin-right: 1rem;
+
+
+}
+.logincontainer .btnlogin:hover{
+    background-color: #3e4492;
+    color: white;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "communication",
+  "version": "1.0.0",
+  "description": "Communication With DataBase and ESP32",
+  "main": "indexsunshine.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon indexsunshine.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.2",
+    "mongoose-auto-increment": "^5.0.1",
+    "mqtt": "^4.3.7",
+    "pug": "^3.0.2"
+  }
+}

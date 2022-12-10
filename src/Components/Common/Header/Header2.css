@@ -1,0 +1,61 @@
+.header2main{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+}
+.header2main .header2DeviceId{
+    padding: 0 2rem;
+}
+.header2main .sunshine2{
+    height: 3rem;
+    width: 15rem;
+}
+.header2main .updateat{
+    /* font-size: 1rem; */
+    font-weight: 1000;
+}
+.header2main .genimg{
+    height: 5rem;
+    width: 8rem;
+    margin-left: 6rem;
+}
+.header2main .gencalculation{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header2main .genstatus{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 4rem;
+    font-size: 1.2rem;
+}
+.header2main .onnstatus{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 2rem;
+}
+.header2main .onngen{
+    margin-right: 1rem;
+    background-color: green;
+    color: white;
+    width: 2.5rem;
+    text-align: center;
+}
+.header2main .offstatus{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header2main .offgen{
+    margin-right: 1rem;
+    background-color: red;
+    color: white;
+    width: 2.5rem;
+    text-align: center;
+}
