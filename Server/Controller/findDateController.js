@@ -36,7 +36,7 @@ export const getbetweendate = async (req, res) =>{
         }) 
         await Promise.all(process)
         // console.log("Report is fatched by start date and end date")
-        res.status(200).json(filterData)
+        res.status(200).json(filterData.reverse())
     } catch (error) {
         res.status(404).json({message:error.message})
     }
