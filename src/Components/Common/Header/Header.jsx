@@ -12,9 +12,8 @@ export default function Header(props) {
             <div className="machineHeader">
                 <img className='machineimagelogo' src={sunshine} alt="Uploading" />
                 {/* <div className="roomName">{roomName}</div> */}
-                <div className="machineheading">MRS9000 EMITION MONITORING OF INCINERATOR WITH REPORTING</div>
+                <div className="machineheading">MRS9000 CEMS (Continuous Enissions Monitoring System) of incinerator with reporting</div>
                 <div className="datetimeupdated">{props.timedate}</div>
-                {/* <div className="machineheading">TEMPERATURE AND HUMIDITY MONITORING WITH REPORTING</div> */}
             </div>
         </>
     )

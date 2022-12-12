@@ -59,3 +59,11 @@
     width: 2.5rem;
     text-align: center;
 }
+@media screen and (max-width:750px) {
+    .genimg{
+        display: none;
+    }
+    .header2main{
+        margin-top: 0;
+    }
+}

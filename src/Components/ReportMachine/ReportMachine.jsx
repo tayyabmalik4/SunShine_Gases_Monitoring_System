@@ -42,14 +42,13 @@ const ReportMachine = () => {
     <>
       <div className="reportmain">
         <div className="report" id='reportid'>
-          {/* <div className="reportmaintable"> */}
           <Header/>
           <div className="date">{date.startDate} ~ {date.endDate}</div>
           <table className='tablemain' id='tablee'>
             <thead className='tablehead'>
               <tr className='tablerow'>
                 <th className='tableh'>Time | Date</th>
-                <th className='tableh'>Particular Matter</th>
+                <th className='tableh'>PM</th>
                 <th className='tableh'>CO2</th>
                 <th className='tableh'>CO</th>
                 <th className='tableh'>NOX</th>
@@ -86,7 +85,6 @@ const ReportMachine = () => {
           <button className='pdfbtn' onClick={close}>Close</button>
         </div>
       </div>
-      {/* </div> */}
     </>
 
 

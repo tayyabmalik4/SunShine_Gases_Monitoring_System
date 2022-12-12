@@ -25,4 +25,7 @@
     .machineHeader{
         flex-wrap: wrap;
     }
+    .datetimeupdated{
+        display: none;
+    }
 }

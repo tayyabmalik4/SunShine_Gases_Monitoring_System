@@ -13,7 +13,6 @@ import Footer from '../Common/Footer/Footer';
 import Header2 from '../Common/Header/Header2';
 import AreaChart1 from '../Common/Charts/AreaChart1/AreaChart1';
 import AreaChart2 from '../Common/Charts/AreaChart1/AreaChart2';
-import LiquaidChart1 from '../Common/Charts/LiquidChartReact/LiquaidChart1';
 
 
 
@@ -75,11 +74,9 @@ const MachineData = () => {
 
     // the function is use to find the date between start date and last date
     const findByDate = () => {
-        // finddate(dispatch, dateback, _groupName)
-        // finddate(dispatch, sendDate, MQTT_ID)
         finddate(dispatch, dateback, MQTT_ID)
 
-        navigate('/dashboard/report', { state: {date: sendDate } })
+        navigate('/dashboard/report', { state: { date: sendDate } })
     }
 
     return (
@@ -96,50 +93,53 @@ const MachineData = () => {
 
 
                     <div className="datepiker">
-                        <DateRangePicker className='rangepiker' onChange={(event) => settingDate(event)} value={value} placeholder="Start Date ~ End Date"
+                        <DateRangePicker showOneCalendar className='rangepiker' onChange={(event) => settingDate(event)} value={value} placeholder="Start Date ~ End Date"
                             renderValue={(value) => {
                                 return moment(value[0])?.format("DD-MM-YYYY") + ' ~ ' + moment(value[1])?.format("DD-MM-YYYY");
                             }} />
                         <button className='btnreport' onClick={findByDate}> Report</button>
                     </div>
                 </div>
-                <div className="getherCharts">
+                <div className="allcharts">
 
-                    <div className="guageChartcontainer">
-                        <div className="gaugechartpowerfuel">
 
-                            <div className="gaugechartarea">
-                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co / 100) * 100} name={'CO: ' + meterDashData[meterDashData.length - 1]?.value?.co + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' valfix = {0}/>
+                    <div className="getherCharts">
+
+                        <div className="guageChartcontainer">
+                                <div className="chartarea1">
+                                    <div className="gaugechartarea1">
+                                        <div className="gaugechartarea ">
+                                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co / 100) * 100} name={'CO: ' + meterDashData[meterDashData.length - 1]?.value?.co + " "} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(237, 18, 1, 1)'} textFontSize='11px' valueFontSize='18px' valfix={0} />
+                                        </div>
+                                        <div className="gaugechartarea ">
+                                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.sox / 100) * 100} name={"SOX: " + meterDashData[meterDashData.length - 1]?.value?.sox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' valfix={0} />
+                                        </div>
+                                    </div>
+                                    <div className="linechart1">
+                                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.co)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.sox)} labelname1='SOX' labelname2='CO' maxValueArea={60} />
+                                    </div>
+                                </div>
+                            <div className="chartarea2">
+                                <div className="gaugechartarea2">
+                                    <div className="gaugechartarea">
+                                        <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.nox / 100) * 100} name={'NOX: ' + meterDashData[meterDashData.length - 1]?.value?.nox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='14px' valfix={2} />
+                                    </div>
+                                    <div className="gaugechartarea">
+                                        <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co2 / 100) * 100} name={'CO2: ' + meterDashData[meterDashData.length - 1]?.value?.co2 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={' %'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' valfix={0} />
+                                    </div>
+                                </div>
+                                <div className="linechart2">
+                                    <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.co2)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.nox)} labelname1='CO2' labelname2='NOX' maxValueArea={10} />
+                                </div>
                             </div>
-                            {/* <div className="gaugechartarea ">
-                                <GuageChart1 val={(33 / 100) * 100} name={"SOX: " + 33 + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'%'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' />
-                            </div> */}
-                            <div className="gaugechartarea ">
-                                <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.sox / 100) * 100} name={"SOX: " + meterDashData[meterDashData.length - 1]?.value?.sox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(255,69,0,0.4)'} textFontSize='11px' valueFontSize='18px' valfix = {0}/>
+                            <div className="chartarea3">
+                                <div className="gaugechartarea hourschart">
+                                    <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.pm / 100) * 100} name={'PM: ' + meterDashData[meterDashData.length - 1]?.value?.pm + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
+                                </div>
+                                <div className="linechart3">
+                                    <AreaChart2 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.pm)} labelname1='Particular Matter' maxValueArea={10} />
+                                </div>
                             </div>
-                        </div>
-                        <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.nox / 100) * 100} name={'NOX: ' + meterDashData[meterDashData.length - 1]?.value?.nox + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='14px' valfix = {2}/>
-                        </div>
-                        <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.co2 / 100) * 100} name={'CO2: ' + meterDashData[meterDashData.length - 1]?.value?.co2 + " %"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={' %'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' valfix = {0}/>
-                        </div>
-                        <div className="gaugechartarea hourschart">
-                            <GuageChart1 val={(meterDashData[meterDashData.length - 1]?.value?.pm / 100) * 100} name={'PM: ' + meterDashData[meterDashData.length - 1]?.value?.pm + " ppm"} numColor='rgb(0,0,255)' textColor='gray' heightgraph={180} valpercent={'ppm'} gradientColor={'rgba(2, 18, 153, 1)'} textFontSize='11px' valueFontSize='16px' />
-                        </div>
-                    </div>
-                </div>
-                <div className="temppowergraph">
-                    <div className="linechartcontainer">
-                    <div className="linechart2">
-                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.co)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.sox)} labelname1='SOX' labelname2='CO' maxValueArea={60}/>
-                        </div>
-                        <div className="linechart1">
-                        <AreaChart1 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.co2)} humid={meterDashData.slice(-24)?.map((time) => time?.value?.nox)} labelname1='CO2' labelname2='NOX' maxValueArea = {10}/>
-                        </div>
-                        
-                        <div className="linechart3">
-                        <AreaChart2 labels={meterDashData.slice(-24)?.map((time) => time?.time)} temp={meterDashData.slice(-24)?.map((time) => time?.value?.pm)} labelname1='Particular Matter' maxValueArea={10}/>
                         </div>
                     </div>
                 </div>
