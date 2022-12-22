@@ -2,32 +2,32 @@ import mqtt from 'mqtt'
 import moment from 'moment'
 import MeterModal from "../model/meterModel.js"
 
-const temphumidDB = () => {
-    const client = mqtt.connect('mqtt:15.206.128.//:1883',{username:'hunch',password:'hunch'});
-    // const client = mqtt.connect('mqtt://192.168.0.139:1883');
-    client.on('connect', () => {
-        if (client.connected) {
-            console.log("MQTT protocol is connected successfully");
-        }
-        else {
-            console.log("Not Connected any where")
-        }
-        client.subscribe('Data/sunshine/Dev')
+const dummyVal =async (re1, res) => {
+        function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+      }
+        
+          let dummypm = getRndInteger(6,8)
+          let dummyco2 = getRndInteger(6,8)
+          let dummyco = getRndInteger(42,46)
+          let dummysox = getRndInteger(30,35)
+          let dummynox = getRndInteger(14,17)
+          let dummynox1 = dummynox/100
+        //   console.log("This is dummy value of pm",dummypm,dummyco2,dummyco,dummysox,dummynox1);
 
-
-    })
-
-    client.on('message', async (topic, message) => {
-        var stringBuf = message.toString('utf-8');
-        var myobj3 = JSON.parse(stringBuf);
+          let pmval = dummypm.toString()
+          let co2val = dummyco2.toString()
+          let coval = dummyco.toString()
+          let soxval = dummysox.toString()
+          let noxval = dummynox1.toString()
         var myobj2 = {
             "MQTT_ID":"m1",
             "Device_ID": "CELL9000001234",
-            "pm" : "7",
-            "co2":"6",
-            "co":"44",
-            "sox": "31",
-            "nox": "0.16"
+            "pm" : pmval,
+            "co2":co2val,
+            "co":coval,
+            "sox":soxval,
+            "nox": noxval
         }
         // if (myobj3.temp > 0 && myobj3.temp < 100 && myobj3.humidity > 0 && myobj3.humidity < 100) {
             var datetime = new Date();
@@ -45,6 +45,5 @@ const temphumidDB = () => {
         // else {
         //     console.log("Temperature and Humidity is Out of Range")
         // }
-    })
-}
-export default temphumidDB;
+    }
+export default dummyVal;

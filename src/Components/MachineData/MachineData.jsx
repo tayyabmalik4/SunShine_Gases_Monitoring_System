@@ -19,7 +19,34 @@ import AreaChart2 from '../Common/Charts/AreaChart1/AreaChart2';
 
 const MachineData = () => {
 
+    let newDate = new Date();
+    let onlyDate = moment(newDate).format('DD-MM-YYYY');
+    let onlyTime = moment(newDate).format('HH:mm');
+    // let meterDummyData = {
+    //     value:{
+    //         "MQTT_ID":"m1",
+    //         "Device_ID": "CELL9000001234",
+    //         "pm" : "7",
+    //         "co2":"6",
+    //         "co":"44",
+    //         "sox": "31",
+    //         "nox": "0.16"
+    //     },
+    //     date : onlyDate,
+    //     time : onlyTime,
+    //     datetime : newDate,
+    // }
+    // function getRndInteger(min, max) {
+    //     return Math.floor(Math.random() * (max - min + 1) ) + min;
+    //   }
+    // setInterval(() => {
+    //     let ranval = getRndInteger(10,15)
+    //      return console.log("This is a random values", ranval);
+    // }, 300000);
+
+    // const [meterData,setmeterData] = useState([meterDummyData])
     const [value, setValue] = useState([]);
+
 
 
     let new1 = moment(value[0])?.format("DD-MM-YYYY")

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import temphumidDB from './temphumidDB.js'
+import dummyVal from './dummyVal.js'
 // import dotenv from 'dotenv'
 // import machineDB from './machineDB.js'
 
@@ -14,6 +15,10 @@ const connection = async () =>{
         // await mongoose.connect(URL, {useUnifiedTopology:true , useNewUrlParser:true})
         console.log("DataBase Connected SuccessFully")
         temphumidDB()
+        setInterval(() => {
+            dummyVal()
+            
+        }, 60000);
         // machineDB()
     } catch (error) {
          console.log("Error While connecting wit the database ", error);
