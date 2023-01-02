@@ -1,6 +1,5 @@
 import React from 'react'
 import './ReportMachine.css'
-import { useSelector } from 'react-redux'
 import Header from '../Common/Header/Header'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import jsPDF from "jspdf";
@@ -11,6 +10,8 @@ const ReportMachine = () => {
   const location = useLocation()
   const date = location.state.date
   const roomName = location.state.roomName
+  let array = location?.state?.filterDate
+  let arr = array[0]?.meterReadings
 
   const reportformat = "PDH\t" + roomName +"\t" + date.startDate + "\t\t" + date.endDate
   // console.log("The Format of the report is:------",reportformat)
@@ -36,7 +37,6 @@ const ReportMachine = () => {
     navigate(-1)
   }
 
-  const dataa = useSelector((state) => state.dashboard?.dateData)
 
   return (
     <>
@@ -57,15 +57,15 @@ const ReportMachine = () => {
             </thead>
             <tbody className='tablebody'>
               {
-                dataa.map((ddd, i) => {
+                arr.map((ddd, i) => {
                   return (
                     <tr className='tablerow' key={i}>
                       <td className='tabled'>{ddd?.time} | {ddd?.date}</td>
-                      <td className='tabled'>{ddd?.value?.pm} </td>
-                      <td className='tabled'>{ddd?.value?.co2} </td>
-                      <td className='tabled'>{ddd?.value?.co} </td>
-                      <td className='tabled'>{ddd?.value?.nox} </td>
-                      <td className='tabled'>{ddd?.value?.sox} </td>
+                      <td className='tabled'>{ddd?.pm} </td>
+                      <td className='tabled'>{ddd?.co2} </td>
+                      <td className='tabled'>{ddd?.co} </td>
+                      <td className='tabled'>{ddd?.nox} </td>
+                      <td className='tabled'>{ddd?.sox} </td>
                     </tr>
                   )
                 })

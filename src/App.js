@@ -8,12 +8,13 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import DashboardMachineDataMain from './Components/MachineData/MachineData';
+import MachineData from './Components/MachineData/MachineData';
 import ReportMachine from './Components/ReportMachine/ReportMachine';
 import Login from './Components/Auth/Login/Login';
 import ProtedtedRoute from './Components/GlobalRoute/ProtedtedRoute';
 import Error from './Components/PageNotFound/PageError';
 import Footer from './Components/Common/Footer/Footer';
+import MachineDataAdmin from './Components/Admin/MachineDataAdmin/MachineDataAdmin';
 
 const ProtectedRoutes = () => {
   let location = useLocation()
@@ -24,8 +25,10 @@ const ProtectedRoutes = () => {
         <Routes>
           <Route exact path='/login' element={<Login />}></Route>
           <Route exact path='/' element={<Navigate replace to='/login' />}></Route>
-          <Route exact path='/dashboard/Dep' element={<ProtedtedRoute Component={DashboardMachineDataMain} />}></Route>
+          <Route exact path='/dashboard/Dep' element={<ProtedtedRoute Component={MachineData} />}></Route>
           <Route exact path='/dashboard/report' element={<ProtedtedRoute Component={ReportMachine} />}></Route>
+          {/* Admin side */}
+          <Route exact path='/dashboard_admin/Dep' element={<ProtedtedRoute Component={MachineDataAdmin} />}></Route>
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

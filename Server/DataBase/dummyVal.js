@@ -40,10 +40,5 @@ const dummyVal =async (re1, res) => {
             } catch (error) {
                 console.log("Record Failed By some reason")
             }
-            
-        // }
-        // else {
-        //     console.log("Temperature and Humidity is Out of Range")
-        // }
     }
 export default dummyVal;

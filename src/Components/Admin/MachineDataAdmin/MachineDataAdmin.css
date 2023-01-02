@@ -1,0 +1,14 @@
+.btncommon{
+    background-color: transparent;
+    border: 1px solid #3e4492;
+    padding: 2px 7px;
+    border-radius: 5px;
+    margin: 0 0.5rem;
+    width: 4rem;
+    font-size: 0.7rem;
+}
+.btncommon:hover{
+    background-color: #3e4492;
+    color: white;
+    border: white;
+}

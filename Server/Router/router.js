@@ -1,9 +1,12 @@
 import express from 'express'
-import { getbetweendate} from '../Controller/findDateController.js'
 
 import {loginController, signupController } from '../Controller/loginController.js';
 
-import {meterGetController, meterPostController} from '../Controller/meterController.js'
+import { machinePostController , machineGetController } from '../Controller/machineController.js';
+
+import {meterGetController} from '../Controller/meterController.js'
+
+import DummyValPostController from '../Controller/DummyValController.js'
 
 var router = express.Router();
 
@@ -11,11 +14,15 @@ var router = express.Router();
 router.post('/signup',signupController);
 router.post('/login',loginController);
 
+// Machine Routes
+router.post('/machinepost', machinePostController)
+router.get('/machineget', machineGetController)
+
 // Meter Routes
-router.post('/meterPost',meterPostController)
 router.post('/meterGet',meterGetController)
 
-// find the data from dates
-router.post('/finddate',getbetweendate);
+// Dummy Value Router
+router.post('/dummyValPost', DummyValPostController);
+
 
 export default router;

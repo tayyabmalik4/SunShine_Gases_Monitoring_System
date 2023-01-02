@@ -36,7 +36,7 @@ export default function Login() {
         progress: undefined,
       })
       setTimeout(() => {
-        navigate('/dashboard')
+        navigate('/dashboard_admin/Dep?MQTT_ID=m1')
       }, 1000);
     }
     else if(response.data[0]?.admin===false){
