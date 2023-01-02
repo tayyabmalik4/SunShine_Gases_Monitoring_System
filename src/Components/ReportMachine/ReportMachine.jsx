@@ -12,6 +12,8 @@ const ReportMachine = () => {
   const roomName = location.state.roomName
   let array = location?.state?.filterDate
   let arr = array[0]?.meterReadings
+  let arr1 = [].concat(arr).reverse()
+  console.log(arr1)
 
   const reportformat = "PDH\t" + roomName +"\t" + date.startDate + "\t\t" + date.endDate
   // console.log("The Format of the report is:------",reportformat)
@@ -57,7 +59,7 @@ const ReportMachine = () => {
             </thead>
             <tbody className='tablebody'>
               {
-                arr.map((ddd, i) => {
+                arr1.map((ddd, i) => {
                   return (
                     <tr className='tablerow' key={i}>
                       <td className='tabled'>{ddd?.time} | {ddd?.date}</td>

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 // import temphumidDB from './temphumidDB.js'
-import dummyVal from './dummyVal.js'
+// import dummyVal from './dummyVal.js'
 // import dotenv from 'dotenv'
 import machineDB from './machineDB.js'
 
