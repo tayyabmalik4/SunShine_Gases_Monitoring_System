@@ -13,7 +13,6 @@ const ReportMachine = () => {
   let array = location?.state?.filterDate
   let arr = array[0]?.meterReadings
   let arr1 = [].concat(arr).reverse()
-  console.log(arr1)
 
   const reportformat = "PDH\t" + roomName +"\t" + date.startDate + "\t\t" + date.endDate
   // console.log("The Format of the report is:------",reportformat)
