@@ -30,8 +30,8 @@ const MachineData = () => {
     const [value, setValue] = useState([]);
 
     const [dummyVal, setDummyVal] = useState(vall);
-    const [dummyStatus, setDummyStatus] = useState([])
-    console.log("dummy Satatus", dummyStatus)
+    // console.log("dummy Satatus", dummyStatus)
+    console.log(dummyVal.reading, "-------------", dummyVal.interval)
 
 
 
@@ -121,18 +121,26 @@ const MachineData = () => {
     let inter = null;
     function startvalByClick() {
         // inter = setInterval(() => {
+            if(dummyVal.reading>=0 &&dummyVal.interval>=0 && dummyVal.reading<=100 &&dummyVal.interval<=100){
             console.log("Interval Started")
             DummyValApi(dummyVal)
             document.getElementById('stbutton').style.backgroundColor="rgb(0,200,0)"
+            toast.success("Data Posted SuccessFully for " + dummyVal.interval +" Minutes Interval And " + dummyVal.reading + " Readings")
+            }else{
+                toast.error("Please Choose Number between 0-100");
+            }
 
         // navigate('/dashboard_admin/Dep?MQTT_ID=m1')
         // }, 60000);
     }
-    // function stopvalByClick() {
-    //     document.getElementById('statusshow').style.backgroundColor = "red"
-    //     clearInterval(inter)
-    //     console.log("Stop the interval process")
-    // }
+
+    function stopvalByClick() {
+        const zeroval = {read : 0}
+        document.getElementById('stbutton').style.backgroundColor = "red"
+        toast.error("Stop The Interval Process")
+        DummyValApi(zeroval)
+
+    }
 
     const inputreading = (e) => {
         if (e.target.value >= 0 && e.target.value <= 100) {
@@ -140,10 +148,8 @@ const MachineData = () => {
                 setDummyVal({ ...dummyVal, [e.target.name]: e.target.value })
                 console.log(dummyVal)
             } else {
-                alert("Please Choose Number between 0-100");
+                toast.error("Please Choose Number between 0-100");
             }
-        
-
     }
 
     return (
@@ -156,7 +162,7 @@ const MachineData = () => {
                         <input type="number" min={0} max={100} onChange={(e) => inputreading(e)} name="reading" className='inputclass' id='inputid' placeholder='Readings' />
                         <input type="number" min={0} max={60} onChange={(e) => inputreading(e)} name="interval" className='inputclass' placeholder='Interval' />
                         <button onClick={() => startvalByClick()} className='btnstart btncommon' id='stbutton'>Start</button>
-                        {/* <button onClick={()=>stopvalByClick()} className="btnstop btncommon">Stop</button> */}
+                        <button onClick={()=>stopvalByClick()} className="btnstop btncommon">Stop</button>
                     </div>
                     {/* <PanoramaFishEyeIcon style={{backgroundColor:"red",color:"white",borderRadius:"50%"}} id="statusshow"/> */}
                 </div>
