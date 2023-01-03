@@ -35,7 +35,6 @@ const DummyValPostController = async (req, res) => {
                 function getRndInteger(min, max) {
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
-
                 let dummypm = getRndInteger(6, 8)
                 let dummyco2 = getRndInteger(6, 8)
                 let dummyco = getRndInteger(42, 46)

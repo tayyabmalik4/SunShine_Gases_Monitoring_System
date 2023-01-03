@@ -22,16 +22,16 @@ import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 
 
 var vall = {
-    reading : 1,
-    interval : 1
+    reading: 1,
+    interval: 1
 }
 const MachineData = () => {
 
     const [value, setValue] = useState([]);
 
     const [dummyVal, setDummyVal] = useState(vall);
-    const [dummyStatus,setDummyStatus] = useState([])
-    console.log("dummy Satatus",dummyStatus)
+    const [dummyStatus, setDummyStatus] = useState([])
+    console.log("dummy Satatus", dummyStatus)
 
 
 
@@ -119,37 +119,46 @@ const MachineData = () => {
         navigate('/dashboard/report', { state: { date: sendDate, filterDate: filterDate } })
     }
     let inter = null;
-    function startvalByClick(){
-        document.getElementById('statusshow').style.backgroundColor="rgb(0,200,0)"
-            // inter = setInterval(() => {
-                console.log("Interval Started")
-                DummyValApi(dummyVal)
-            // }, 60000);
-        }
-    function stopvalByClick(){
-        document.getElementById('statusshow').style.backgroundColor="red"
-            clearInterval(inter)
-            console.log("Stop the interval process")
-        }
+    function startvalByClick() {
+        // inter = setInterval(() => {
+            console.log("Interval Started")
+            DummyValApi(dummyVal)
+            document.getElementById('stbutton').style.backgroundColor="rgb(0,200,0)"
 
-        const inputreading = (e)=>{
-            setDummyVal({...dummyVal, [e.target.name]:e.target.value})
-            console.log(dummyVal)
-        }
+        // navigate('/dashboard_admin/Dep?MQTT_ID=m1')
+        // }, 60000);
+    }
+    // function stopvalByClick() {
+    //     document.getElementById('statusshow').style.backgroundColor = "red"
+    //     clearInterval(inter)
+    //     console.log("Stop the interval process")
+    // }
+
+    const inputreading = (e) => {
+        if (e.target.value >= 0 && e.target.value <= 100) {
+            // if (e.target.value && e.target.value.length) {
+                setDummyVal({ ...dummyVal, [e.target.name]: e.target.value })
+                console.log(dummyVal)
+            } else {
+                alert("You can only enter letters");
+            }
+        
+
+    }
 
     return (
         <>
             <div className="meterdatamain">
                 <Header timedate={<Clock format={'HH:mm:ss| DD-MM-YYYY'} ticking={true} timezone={'asia/Karachi'} />} />
                 <div className="header2main">
-                <Header2 Device_ID={meterDashData[0]?.Device_ID} updatetime={getarray[0]?.[getarray[0]?.length - 1]?.time + '\t | \t' + getarray[0]?.[getarray[0]?.length - 1]?.date} />
-                <div className="btnstartstop">
-                <input type="number" onChange={(e)=>inputreading(e)} name="reading" className='inputclass' id='inputid' placeholder='Readings'/>
-                <input type="number" onChange={(e)=>inputreading(e)} name="interval" className='inputclass' placeholder='Interval'/>
-                    <button onClick={()=>startvalByClick()} className='btnstart btncommon'>Start</button>
-                    {/* <button onClick={()=>stopvalByClick()} className="btnstop btncommon">Stop</button> */}
-                </div>
-                    <PanoramaFishEyeIcon style={{backgroundColor:"red",color:"white",borderRadius:"50%"}} id="statusshow"/>
+                    <Header2 Device_ID={meterDashData[0]?.Device_ID} updatetime={getarray[0]?.[getarray[0]?.length - 1]?.time + '\t | \t' + getarray[0]?.[getarray[0]?.length - 1]?.date} />
+                    <div className="btnstartstop">
+                        <input type="number" min={0} max={100} onChange={(e) => inputreading(e)} name="reading" className='inputclass' id='inputid' placeholder='Readings' />
+                        <input type="number" min={0} max={60} onChange={(e) => inputreading(e)} name="interval" className='inputclass' placeholder='Interval' />
+                        <button onClick={() => startvalByClick()} className='btnstart btncommon' id='stbutton'>Start</button>
+                        {/* <button onClick={()=>stopvalByClick()} className="btnstop btncommon">Stop</button> */}
+                    </div>
+                    {/* <PanoramaFishEyeIcon style={{backgroundColor:"red",color:"white",borderRadius:"50%"}} id="statusshow"/> */}
                 </div>
                 <div className="machinedatamain">
                     <div className="machinetabledata">
@@ -162,7 +171,7 @@ const MachineData = () => {
                                 return moment(value[0])?.format("DD-MM-YYYY") + ' ~ ' + moment(value[1])?.format("DD-MM-YYYY");
                             }} />
                         <button className='btnreport' onClick={findByDate}> Report</button>
-                        
+
                     </div>
                 </div>
                 <div className="allcharts">
