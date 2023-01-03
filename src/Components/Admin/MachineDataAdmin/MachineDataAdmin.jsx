@@ -140,7 +140,7 @@ const MachineData = () => {
                 setDummyVal({ ...dummyVal, [e.target.name]: e.target.value })
                 console.log(dummyVal)
             } else {
-                alert("You can only enter letters");
+                alert("Please Choose Number between 0-100");
             }
         
 
