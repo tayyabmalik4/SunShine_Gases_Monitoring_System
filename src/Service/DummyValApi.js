@@ -6,7 +6,8 @@ export const DummyValApi = async (data) =>{
         error : null
     }
     try {
-        await axios.post(`dummyValPost`,data)
+        let response = await axios.post(`dummyValPost`,data)
+        resolved.data = response.data
     }catch(error){
         resolved.error = "Your Internet is Not Connected"
     }
